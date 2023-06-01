@@ -1,26 +1,32 @@
-let myLibrary = [];
-
-function Book(name, author, pages, read){
-    this.name = name;
+function Book(title, author, pages, read = false) {
+    this.title = title;
     this.author = author;
     this.pages = pages;
-    this.read = read || false;
+    this.read = read;
 }
 
-function addBookToLibrary(book) {
+myLibrary = []
+
+const book = new Book('Blank title', 'Blank Author', 'Blank Pages', false)
+
+
+const btn = document.querySelector('#submit');
+
+function formWipe() {
+    document.getElementById("myForm").reset();
+}
+
+btn.addEventListener('click', () => {
+    //set book object to values from the book
+    book.title = document.getElementById('title').value;
+    book.author = document.getElementById('author').value;
+    book.pages = document.getElementById('pages').value;
+
+
+    // push book object to my library array
     myLibrary.push(book);
-}
 
-function showOff() {
-    myLibrary.forEach(book => {
-        console.table(book.name, book.author, book.pages, book.read);
-    });
-}
+    //reset form
+    formWipe();
+})
 
-const book1 = new Book("Wheel of time: Eye of the World", "Robert Jordan", 782, true);
-addBookToLibrary(book1)
-
-const book2 = new Book("Lord of the Ring Fellowship of the Ring", "JRR Tolkien", 432);
-addBookToLibrary(book2)
-
-showOff()
