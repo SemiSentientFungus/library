@@ -1,3 +1,5 @@
+myLibrary = []
+
 function Book(title, author, pages, read = false) {
     this.title = title;
     this.author = author;
@@ -5,28 +7,16 @@ function Book(title, author, pages, read = false) {
     this.read = read;
 }
 
-myLibrary = []
-
-const book = new Book('Blank title', 'Blank Author', 'Blank Pages', false)
-
-
-const btn = document.querySelector('#submit');
-
-function formWipe() {
-    document.getElementById("myForm").reset();
+function addBook(object){
+    myLibrary.push(object)
 }
 
-btn.addEventListener('click', () => {
-    //set book object to values from the book
-    book.title = document.getElementById('title').value;
-    book.author = document.getElementById('author').value;
-    book.pages = document.getElementById('pages').value;
+const book1 = new Book('Lord of the Rings', 'J RR Tolkien', 2600, false)
+const book2 = new Book('Wheel of Time', 'Robert Jordan', 2500, true)
 
+addBook(book1)
+addBook(book2)
 
-    // push book object to my library array
-    myLibrary.push(book);
-
-    //reset form
-    formWipe();
-})
-
+myLibrary.forEach(element => {
+    console.table(element)
+});
