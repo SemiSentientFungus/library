@@ -12,6 +12,7 @@ function addBook(object){
 }
 
 function populate(array){
+    let i = 0
     for (element of array){
         const div = document.createElement('div')
         div.classList.add('book-element')
@@ -35,16 +36,30 @@ function populate(array){
         if (element.read == true){
             read.classList.add('book-read')
             read.innerHTML = "Read"
+            read.value = i
         }
         else{
             read.classList.add('book-unread')
             read.innerHTML = "Unread"
+            read.value = i
         }
         
         div.append(read)
+        i++
 
         //add book to grid
         grid.append(div)
+        read.addEventListener('click',() => read_book(read.value))
+    }
+}
+
+function read_book(element.value){
+    if (myLibrary[index].read == true){
+        console.log('How did you unread a book?!??')
+    }
+    else{
+        myLibrary[index].read = true
+        read.innerHTML = 'Read'
     }
 }
 
@@ -60,3 +75,4 @@ addBook(book3)
 const grid = document.querySelector('.library-grid')
 
 populate(myLibrary)
+
