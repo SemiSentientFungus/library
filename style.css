@@ -62,4 +62,9 @@
 
 .myform{
     display: none;
+    position: absolute;
+    top:30%;
+    height: 450px;
+    width: 800px;
+    border: 2px solid black;
 }
