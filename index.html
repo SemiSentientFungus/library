@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Library</title>
     <link rel="stylesheet" href="style.css">    
     <script defer src="script.js"></script>
 </head>
@@ -12,9 +12,28 @@
     <div class="container">
         <div class="library-container">
             <h1 class="library-header">Library</h1>
+            <button class="book-add">Add a book</button>
             <div class="library-grid"></div>
         </div>
-        <form></form>
+        <form class="myform">
+            <div class="form-read">
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title">
+            </div>
+            <div class="form-author">
+                <label for="author">Author:</label>
+                <input type="text" id="author" name="author">
+            </div>
+            <div class="form-pages">
+                <label for="pages">Pages:</label>
+                <input type="text" id="pages" name="pages">
+            </div>
+            <div class="form-readstatus">
+                <label for="readstatus">Read:</label>
+                <input type="checkbox" id="readstatus" name="readstatus" >
+            </div>
+            <button type="button">Submit</button>
+        </form>
     </div>
 </body>
 </html>
