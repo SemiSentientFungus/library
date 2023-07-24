@@ -53,13 +53,27 @@ function populate(array){
     }
 }
 
-function read_book(element.value){
+function libraryClear(){
+    while(grid.firstChild){
+        grid.firstChild.remove()
+    }
+}
+
+function refreshGrid(){
+    libraryClear()
+    populate(myLibrary)
+}
+
+function read_book(index){
+    const read = document.querySelector('.book-unread')
     if (myLibrary[index].read == true){
         console.log('How did you unread a book?!??')
     }
     else{
         myLibrary[index].read = true
         read.innerHTML = 'Read'
+        read.classList.add('book-read')
+        read.classList.remove('book-unread')
     }
 }
 
@@ -68,11 +82,11 @@ const book2 = new Book('Wheel of Time', 'Robert Jordan', 2500, true)
 const book3 = new Book('Guards! Guards!', 'Sir Terry Pratchett', 600, true)
 
 
-addBook(book1)
-addBook(book2)
-addBook(book3)
-
 const grid = document.querySelector('.library-grid')
+
+const btn = document.querySelector('.book-add')
+
+btn.addEventListener('click', () => refreshGrid())
 
 populate(myLibrary)
 
